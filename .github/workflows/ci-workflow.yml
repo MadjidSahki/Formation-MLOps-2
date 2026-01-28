@@ -24,6 +24,6 @@ jobs:
       - name: Run Vulture
         run:  python -m pip install vulture && vulture ./scripts
       - name: Run tests
-        run:  python.exe -m test -h
+        run:  python -m test
 
 
