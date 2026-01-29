@@ -12,5 +12,4 @@ GENERATED_DATA_PATH = os.path.join(DATA_FOLDER,
 FEATURES_PATH = os.path.join(DATA_FOLDER, 'prepared_features.parquet')
 
 MODEL_REGISTRY_FOLDER = os.path.join(PROJECT_FOLDER, 'models')
-time_str = time.strftime('%Y%m%d-%H%M%S')
-MODEL_PATH = os.path.join(MODEL_REGISTRY_FOLDER, time_str+'.joblib')  # To change when needed
+MODEL_PATH = os.path.join(MODEL_REGISTRY_FOLDER, 'model.joblib')  # To change when needed
