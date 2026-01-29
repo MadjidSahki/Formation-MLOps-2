@@ -17,11 +17,11 @@ def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
     target = 'Ba_avg'
     X = features.drop(columns=[target])
     y = features[target]
+    model = RandomForestRegressor(n_estimators=1, max_depth=10, n_jobs=1)
     with mlflow.start_run():
         mlflow.sklearn.autolog()
-        mlflow.sklearn.log_model(sk_model=model, artifact_path="model", registered_model_name="RandomForestRegressor")
-        model = RandomForestRegressor(n_estimators=1, max_depth=10, n_jobs=1)
         model.fit(X, y)
+        mlflow.sklearn.log_model(sk_model=model, artifact_path="model", registered_model_name="RandomForestRegressor")
     time_str = time.strftime('%Y%m%d-%H%M%S')
     joblib.dump(model, os.path.join(model_registry_folder, time_str + '.joblib'))
 
